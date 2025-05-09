@@ -3,7 +3,7 @@ import asyncio
 from pydantic import BaseModel, Field
 from pydantic_ai import Agent, Tool, ModelRetry
 
-# 1️⃣ Travel Planner Tool
+# 1️Travel Planner Tool
 class TravelInput(BaseModel):
     destination: str = Field(..., description="City to visit")
     days: int = Field(..., description="Number of days")
@@ -16,7 +16,7 @@ def travel_planner(input: TravelInput) -> TravelOutput:
     itinerary = [f"Day {i+1}: Visit famous spots in {input.destination}" for i in range(input.days)]
     return TravelOutput(itinerary=itinerary)
 
-# 2️⃣ Translator Tool
+#Translator Tool
 class TranslateInput(BaseModel):
     text: str
     language: str
